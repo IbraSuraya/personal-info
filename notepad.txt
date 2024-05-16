@@ -1,0 +1,18 @@
+Fitur Kembangan
+- Tech stack dan Project di navbar dibikin jadi drop down "Tech"
+- icon di navbar ukuranya ubah menjadi 75%
+- Kondisi : sidebar sedang terbuka (tablet), lalu pindah ke laptop, pas balik ke tablet sidebar tidka otomatis tertutup
+- Kondisi : sedang tidak di page Home, setiap sidebar dibuka, page otomatis ke home
+- Tech Stack Page
+- Project Page
+- Fitur Shopping Card dan Search
+
+Membuat WEBSITE Kedai Kopi RESPONSIVE dengan HTML & CSS dari 0 + Autodeploy ke WEB HOSTING
+Link : https://youtu.be/MCVkMmYL-aY?si=9zPYbZCdb3Ek1e0U
+TImestap : 01:57:45
+
+- Cookie
+- Tailwind
+- Framework FE
+- Kolaborasi dengan Laravel 11 WPU
+- Kolaborasi Next JS Dea Afrizal
