@@ -34,10 +34,46 @@
       </div>
 
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        <a href="#" id="support-cart-button"><i data-feather="shopping-cart"></i></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
+
+      <!-- search From Start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="seach here ...">
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- search From End -->
+
+      <!-- Support Cart Start  -->
+      <div class="support-cart">
+        <div class="cart-item">
+          <img src="img/support-me.jpg" alt="support-me">
+          <div class="item-detail">
+            <h3>Support Me</h3>
+            <div class="item-price">IDR 30K</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+        <div class="cart-item">
+          <img src="img/support-me.jpg" alt="support-me">
+          <div class="item-detail">
+            <h3>Support Me</h3>
+            <div class="item-price">IDR 30K</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+        <div class="cart-item">
+          <img src="img/support-me.jpg" alt="support-me">
+          <div class="item-detail">
+            <h3>Support Me</h3>
+            <div class="item-price">IDR 30K</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+      </div>
+      <!-- Support Cart End  -->
     </nav>
     <!-- Navbar End -->
 
@@ -113,63 +149,106 @@
     <!-- Tech Stack Section End -->
 
     <!-- Project Section Start -->
-    <section class="about" id="project">
-      <h2>My <span>Project</span></h2>
-
-      <div class="row">
-        <div class="about-img">
-          <img src="img/about-me.jpg" alt="about-me" />
-        </div>
-        <div class="content">
-          <h3>Why choose me?</h3>
-          <p>
-            Dengan keahlian dalam pengujian perangkat lunak, saya menggabungkan
-            teknik pengujian manual dan otomatis untuk menjamin produk yang
-            bebas bug dan user-friendly. Sebagai QA Engineer, saya mengutamakan
-            kualitas dan ketepatan waktu dalam setiap proyek.
-          </p>
-          <p>
-            Saya memiliki kemampuan analitis yang tajam, keterampilan komunikasi
-            yang baik, dan kemampuan untuk bekerja dengan baik dalam tim lintas
-            fungsi. Saya yakin bahwa pendekatan terstruktur dan kolaboratif
-            adalah kunci keberhasilan dalam dunia QA.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- Project Section End -->
-
-    <!-- Support Section Start -->
-    <section class="support" id="support">
-      <h2>Support <span>Me</span></h2>
+    <section class="project" id="project">
+      <h2>Project <span>Me</span></h2>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde quidem sapiente ipsum asperiores? </p>
 
       <div class="row">
 
+        <div class="project-card">
+          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <h3 class="project-card-title">- Bagde 1 -</h3>
+          <p class="project-card-price">IDR 16K</p>
+        </div>
+        <div class="project-card">
+          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <h3 class="project-card-title">- Bagde 2 -</h3>
+          <p class="project-card-price">IDR 80K</p>
+        </div>
+        <div class="project-card">
+          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <h3 class="project-card-title">- Bagde 3 -</h3>
+          <p class="project-card-price">IDR 160K</p>
+        </div>
+        <div class="project-card">
+          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <h3 class="project-card-title">- Bagde 4 -</h3>
+          <p class="project-card-price">IDR 240K</p>
+        </div>
+        <div class="project-card">
+          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <h3 class="project-card-title">- Bagde 5 -</h3>
+          <p class="project-card-price">IDR 2320K</p>
+        </div>
+      </div>
+    </section>
+    <!-- project Section End -->
+
+    <!-- Support Section Start -->
+    <section class="support" id="support">
+      <h2><span>Support</span> Me</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea fugiat culpa aliquam perspiciatis voluptatum commodi?</p>
+
+      <div class="row">
         <div class="support-card">
-          <img src="img/support-me.jpg" alt="support-1" class="support-card-img">
-          <h3 class="support-card-title">- Bagde 1 -</h3>
-          <p class="support-card-price">IDR 16K</p>
+          <div class="support-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+          </div>
+          <div class="support-image">
+            <img src="img/support-me.jpg" alt="support">
+          </div>
+          <div class="support-content">
+            <h3>Level 1</h3>
+            <div class="support-stars">
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+            </div>
+            <div class="support-price">IDR 40K <span>IDR 50K</span></div>
+          </div>
         </div>
         <div class="support-card">
-          <img src="img/support-me.jpg" alt="support-1" class="support-card-img">
-          <h3 class="support-card-title">- Bagde 2 -</h3>
-          <p class="support-card-price">IDR 80K</p>
+          <div class="support-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+          </div>
+          <div class="support-image">
+            <img src="img/support-me.jpg" alt="support">
+          </div>
+          <div class="support-content">
+            <h3>Level 1</h3>
+            <div class="support-stars">
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+            </div>
+            <div class="support-price">IDR 40K <span>IDR 50K</span></div>
+          </div>
         </div>
         <div class="support-card">
-          <img src="img/support-me.jpg" alt="support-1" class="support-card-img">
-          <h3 class="support-card-title">- Bagde 3 -</h3>
-          <p class="support-card-price">IDR 160K</p>
-        </div>
-        <div class="support-card">
-          <img src="img/support-me.jpg" alt="support-1" class="support-card-img">
-          <h3 class="support-card-title">- Bagde 4 -</h3>
-          <p class="support-card-price">IDR 240K</p>
-        </div>
-        <div class="support-card">
-          <img src="img/support-me.jpg" alt="support-1" class="support-card-img">
-          <h3 class="support-card-title">- Bagde 5 -</h3>
-          <p class="support-card-price">IDR 2320K</p>
+          <div class="support-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+          </div>
+          <div class="support-image">
+            <img src="img/support-me.jpg" alt="support">
+          </div>
+          <div class="support-content">
+            <h3>Level 1</h3>
+            <div class="support-stars">
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+            </div>
+            <div class="support-price">IDR 40K <span>IDR 50K</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -226,6 +305,30 @@
       </div>
     </footer>
     <!-- Footer End -->
+
+    <!-- Modal Box Item Detail Start  -->
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img src="img/support-me.jpg" alt="support-me">
+          <div class="support-content">
+            <h3>Support Me</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum tenetur maxime ducimus laborum fugiat! Libero laborum est ratione quaerat inventore, perferendis, ut aperiam suscipit nihil autem, facere dolores minus eius.</p>
+            <div class="support-stars">
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+              <i data-feather="star" class="star-fill"></i>
+            </div>
+            <div class="support-price">IDR 40K <span>IDR 50K</span></div>
+            <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Box Item Detail End  -->
 
     <!-- icons -->
     <script>

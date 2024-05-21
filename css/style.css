@@ -3,6 +3,7 @@
   --bg-navbar: rgba(1, 1, 1, 0.5);
   --primary-color: #777777;
   --secondry-color: #bbbbbb;
+  --secondry-transparent: rgba(187, 187, 187, 0.6);
 }
 
 * {
@@ -88,6 +89,92 @@ body {
   display: none;
 }
 
+/* Navbar search form */
+.navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: var(--secondry-color);
+  width: 25rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+
+.navbar .search-form.active {
+  transform: scaleY(1);
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.2rem;
+  color: var(--bg-color);
+  background-color: var(--secondry-color);
+  padding: 1rem;
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--bg-color);
+}
+
+.support-cart {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: 100vh;
+  width: 35rem;
+  padding: 0 1.5rem;
+  background-color: var(--secondry-color);
+  color: var(--bg-color);
+  transition: 0.6s;
+}
+
+.support-cart.active {
+  right: 0;
+}
+
+.support-cart .cart-item {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--bg-navbar);
+  position: relative;
+}
+
+.support-cart img {
+  height: 6rem;
+  border-radius: 50%;
+}
+
+.support-cart h3 {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.support-cart .item-price {
+  font-size: 1.2rem;
+}
+
+.support-cart .remove-item {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.support-cart .remove-item:hover {
+  color: var(--primary-color);
+  transition: 0.3s;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -162,22 +249,25 @@ body {
 }
 
 .about,
-.support,
-.contact {
+.project,
+.contact,
+.support {
   padding: 8rem 7% 1.4rem;
 }
 
 .about h2,
-.support h2,
-.contact h2 {
+.project h2,
+.contact h2,
+.support h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3.5rem;
 }
 
 .about h2 span,
-.support h2 span,
-.contact h2 span {
+.project h2 span,
+.contact h2 span,
+.support h2 span {
   color: var(--primary-color);
 }
 
@@ -211,14 +301,16 @@ body {
   line-height: 1.6;
 }
 
-/* Support Section */
-.support h2,
-.contact h2 {
+/* project Section */
+.project h2,
+.contact h2,
+.support h2 {
   margin-bottom: 1rem;
 }
 
-.support p,
-.contact p {
+.project p,
+.contact p,
+.support p {
   text-align: center;
   max-width: 30rem;
   margin: auto;
@@ -226,25 +318,92 @@ body {
   line-height: 1.6;
 }
 
-.support .row {
+.project .row {
   display: flex;
   flex-wrap: wrap;
   margin-top: 5rem;
   justify-content: center;
 }
 
-.support .row .support-card {
+.project .row .project-card {
   text-align: center;
   padding-bottom: 2rem;
 }
 
-.support .row .support-card img {
+.project .row .project-card img {
   border-radius: 50%;
   width: 50%;
 }
 
-.support .row .support-card .support-card-title {
+.project .row .project-card .project-card-title {
   margin: 1rem auto 0.5rem;
+}
+
+/* support section  */
+.support .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.support .support-card {
+  text-align: center;
+  border: 1px solid var(--bg-navbar);
+  padding: 2rem;
+}
+
+.support .support-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.support .support-icons a {
+  width: 3rem;
+  height: 3rem;
+  color: var(--secondry-color);
+  margin: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.support .support-icons a:hover {
+  background-color: var(--secondry-color);
+  color: var(--bg-navbar);
+  transform: 0.5s;
+}
+
+.support .support-image img {
+  height: 25rem;
+}
+
+.support .support-content h3 {
+  font-size: 1.5rem;
+}
+
+.support .support-stars {
+  font-size: 1.3rem;
+  padding: 0.8rem;
+}
+
+.support .support-stars .star-fill {
+  color: var(--primary-color);
+  fill: var(--primary-color);
+}
+
+.support .support-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.support .support-price span {
+  text-decoration: line-through;
+  font-weight: lighter;
+  font-size: 1.1rem;
 }
 
 /* contact section */
@@ -343,6 +502,83 @@ footer .credit a {
   font-weight: 700;
 }
 
+/* Modal Box  */
+/* Item Detail */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--bg-navbar);
+}
+
+.modal-container {
+  position: relative;
+  background-color: var(--secondry-color);
+  color: var(--bg-color);
+  margin: 15% auto;
+  padding: 1.2rem;
+  border: 1px solid var(--bg-navbar);
+  width: 80%;
+  animation: animateModal 0.5s;
+}
+
+/* Modal Animation */
+@keyframes animateModal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-container .close-icon {
+  position: absolute;
+  right: 1rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modal-content img {
+  height: 20rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  margin-top: 1.2rem;
+}
+
+.modal-content a {
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+  font-weight: 700;
+}
+
+.modal-content a:hover {
+  background-color: var(--bg-color);
+  transition: 0.5rem;
+  color: var(--secondry-color);
+}
+
 /* Media Queries */
 /* Laptop */
 @media (max-width: 1366px) {
@@ -394,6 +630,11 @@ footer .credit a {
     transform: scaleX(0.2);
   }
 
+  .navbar .search-form {
+    width: 90%;
+    right: 2rem;
+  }  
+
   .about .row {
     flex-wrap: wrap;
   }
@@ -408,7 +649,7 @@ footer .credit a {
     padding-bottom: 2rem;
   }
 
-  .support p {
+  .project p {
     font-size: 1.2rem;
   }
 
@@ -422,6 +663,10 @@ footer .credit a {
 
   .contact .row form {
     padding-top: 0;
+  }
+
+  .modal-content {
+    flex-wrap: wrap;
   }
 }
 
