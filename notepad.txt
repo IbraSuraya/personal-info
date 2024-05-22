@@ -6,9 +6,9 @@ Fitur Kembangan
 - Project Page
 - Fitur Shopping Card dan Search
 
-Membuat WEBSITE Kedai Kopi RESPONSIVE dengan HTML, CSS & Javascript | Part 2 | NGOBAR#37
-Link : https://youtu.be/kvyJPvJKTBI?si=zZUX063Xf6YFeF5L
-TImestap : 00:48:00
+Bikin Elemen Website Semakin KEREN menggunakan CSS MASKING 🔥
+Link : https://youtu.be/-O3YBgWgBdc?si=WaOlJPSQPCuVLF_K
+TImestap : 00:06:00
 
 - Cookie
 - Tailwind

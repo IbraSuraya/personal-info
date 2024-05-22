@@ -185,9 +185,11 @@ body {
   background-size: cover;
   background-position: left;
   position: relative;
+  -webkit-mask-image: linear-gradient(rgba(0,0,0,1) 90%, rgba(0,0,0,0));
+  mask-image: linear-gradient(rgba(0,0,0,1) 90%, rgba(0,0,0,0));
 }
 
-.hero::after {
+/* .hero::after {
   content: "";
   display: block;
   position: absolute;
@@ -199,11 +201,12 @@ body {
     rgba(51, 51, 51, 1) 10%,
     rgba(255, 255, 255, 0) 75%
   );
-}
+} */
 
 .hero .content {
   padding: 1.4rem 7%;
   max-width: 80rem;
+  position: fixed;
 }
 
 .hero .content h1 {
