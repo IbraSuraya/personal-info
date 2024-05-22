@@ -1,14 +1,15 @@
 Fitur Kembangan
 - Tech stack dan Project di navbar dibikin jadi drop down "Tech"
-- icon di navbar ukuranya ubah menjadi 75%
 - Kondisi : sidebar sedang terbuka (tablet), lalu pindah ke laptop, pas balik ke tablet sidebar tidka otomatis tertutup
 - Tech Stack Page
 - Project Page
-- Fitur Shopping Card dan Search
+- Fitur Search
+- Setelah Part 3, pop up cart detail support tidak keluar
+- Jika support cart sidebar isinya terlalu banyak, bagaimana scrollnya?
 
-Bikin Elemen Website Semakin KEREN menggunakan CSS MASKING 🔥
-Link : https://youtu.be/-O3YBgWgBdc?si=WaOlJPSQPCuVLF_K
-TImestap : 00:06:00
+Membuat Fitur PAYMENT GATEWAY (Midtrans) untuk Website KEDAI KOPI | Part 5 | NGOBAR#44
+Link : https://youtu.be/4SK5LRemVqA?si=VpskPsVwtzX9A2e3
+TImestap : 00:14:00
 
 - Cookie
 - Tailwind

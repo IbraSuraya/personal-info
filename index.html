@@ -18,10 +18,17 @@
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Alpine JS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="src/app.js"></script>
   </head>
   <body>
     <!-- Navbar Start -->
-    <nav class="navbar">
+    <nav class="navbar" x-data="">
       <a href="#" class="navbar-logo">personal<span>Info</span>.</a>
 
       <div class="navbar-nav">
@@ -35,42 +42,77 @@
 
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#" id="support-cart-button"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="support-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span
+            class="quantity-badge"
+            x-show="$store.cart.quantity"
+            x-text="$store.cart.quantity"
+          ></span>
+        </a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
 
       <!-- search From Start -->
       <div class="search-form">
-        <input type="search" id="search-box" placeholder="seach here ...">
+        <input type="search" id="search-box" placeholder="seach here ..." />
         <label for="search-box"><i data-feather="search"></i></label>
       </div>
       <!-- search From End -->
 
       <!-- Support Cart Start  -->
       <div class="support-cart">
-        <div class="cart-item">
-          <img src="img/support-me.jpg" alt="support-me">
-          <div class="item-detail">
-            <h3>Support Me</h3>
-            <div class="item-price">IDR 30K</div>
+        <template x-for="(item, index) in $store.cart.items" x-keys="index">
+          <div class="cart-item">
+            <img :src="`img/supports/${item.img}`" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button
+                  id="remove-quantity"
+                  @click="$store.cart.remove(item.id)"
+                >
+                  &minus;
+                </button>
+                <span x-text="item.quantity">1</span>
+                <button id="add-quantity" @click="$store.cart.add(item)">
+                  &plus;
+                </button>
+                &equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
+            </div>
           </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/support-me.jpg" alt="support-me">
-          <div class="item-detail">
-            <h3>Support Me</h3>
-            <div class="item-price">IDR 30K</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
-        </div>
-        <div class="cart-item">
-          <img src="img/support-me.jpg" alt="support-me">
-          <div class="item-detail">
-            <h3>Support Me</h3>
-            <div class="item-price">IDR 30K</div>
-          </div>
-          <i data-feather="trash-2" class="remove-item"></i>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">
+          Cart is Empty
+        </h4>
+        <h4 x-show="$store.cart.items.length">
+          Total : <span x-text="rupiah($store.cart.total)"></span>
+        </h4>
+
+        <div class="form-container" x-show="$store.cart.items.length">
+          <form action="" id="checkoutForm">
+            <h5>Checkout Detail</h5>
+
+            <label for="name">
+              <span>Name</span>
+              <input type="text" name="name" id="name">
+            </label>
+
+            <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email">
+            </label>
+
+            <label for="phone">
+              <span>Phone</span>
+              <input type="number" name="phone" id="phone" autocomplete="off">
+            </label>
+
+            <button class="checkout-button" id="checkout-button" type="submit" value="checkout">Checkout</button>
+          </form>
         </div>
       </div>
       <!-- Support Cart End  -->
@@ -151,32 +193,54 @@
     <!-- Project Section Start -->
     <section class="project" id="project">
       <h2>Project <span>Me</span></h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde quidem sapiente ipsum asperiores? </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde quidem
+        sapiente ipsum asperiores?
+      </p>
 
       <div class="row">
-
         <div class="project-card">
-          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <img
+            src="img/project-me.jpg"
+            alt="project-1"
+            class="project-card-img"
+          />
           <h3 class="project-card-title">- Bagde 1 -</h3>
           <p class="project-card-price">IDR 16K</p>
         </div>
         <div class="project-card">
-          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <img
+            src="img/project-me.jpg"
+            alt="project-1"
+            class="project-card-img"
+          />
           <h3 class="project-card-title">- Bagde 2 -</h3>
           <p class="project-card-price">IDR 80K</p>
         </div>
         <div class="project-card">
-          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <img
+            src="img/project-me.jpg"
+            alt="project-1"
+            class="project-card-img"
+          />
           <h3 class="project-card-title">- Bagde 3 -</h3>
           <p class="project-card-price">IDR 160K</p>
         </div>
         <div class="project-card">
-          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <img
+            src="img/project-me.jpg"
+            alt="project-1"
+            class="project-card-img"
+          />
           <h3 class="project-card-title">- Bagde 4 -</h3>
           <p class="project-card-price">IDR 240K</p>
         </div>
         <div class="project-card">
-          <img src="img/project-me.jpg" alt="project-1" class="project-card-img">
+          <img
+            src="img/project-me.jpg"
+            alt="project-1"
+            class="project-card-img"
+          />
           <h3 class="project-card-title">- Bagde 5 -</h3>
           <p class="project-card-price">IDR 2320K</p>
         </div>
@@ -185,71 +249,55 @@
     <!-- project Section End -->
 
     <!-- Support Section Start -->
-    <section class="support" id="support">
+    <section class="support" id="support" x-data="support">
       <h2><span>Support</span> Me</h2>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea fugiat culpa aliquam perspiciatis voluptatum commodi?</p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea fugiat
+        culpa aliquam perspiciatis voluptatum commodi?
+      </p>
 
       <div class="row">
-        <div class="support-card">
-          <div class="support-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-          <div class="support-image">
-            <img src="img/support-me.jpg" alt="support">
-          </div>
-          <div class="support-content">
-            <h3>Level 1</h3>
-            <div class="support-stars">
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
+        <template x-for="(item, index) in items" x-key="index">
+          <div class="support-card">
+            <div class="support-icons">
+              <a href="#" @click.prevent="$store.cart.add(item)">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#shopping-cart" />
+                </svg>
+              </a>
+              <a href="#" class="item-detail-button">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <use href="img/feather-sprite.svg#eye" />
+                </svg>
+              </a>
             </div>
-            <div class="support-price">IDR 40K <span>IDR 50K</span></div>
-          </div>
-        </div>
-        <div class="support-card">
-          <div class="support-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-          <div class="support-image">
-            <img src="img/support-me.jpg" alt="support">
-          </div>
-          <div class="support-content">
-            <h3>Level 1</h3>
-            <div class="support-stars">
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
+            <div class="support-image">
+              <img :src="`img/supports/${item.img}`" :alt="item.name" />
             </div>
-            <div class="support-price">IDR 40K <span>IDR 50K</span></div>
-          </div>
-        </div>
-        <div class="support-card">
-          <div class="support-icons">
-            <a href="#"><i data-feather="shopping-cart"></i></a>
-            <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
-          </div>
-          <div class="support-image">
-            <img src="img/support-me.jpg" alt="support">
-          </div>
-          <div class="support-content">
-            <h3>Level 1</h3>
-            <div class="support-stars">
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
-              <i data-feather="star" class="star-fill"></i>
+            <div class="support-content">
+              <h3 x-text="item.name"></h3>
+              <div class="support-price">
+                <span x-text="rupiah(item.price)"></span>
+              </div>
             </div>
-            <div class="support-price">IDR 40K <span>IDR 50K</span></div>
           </div>
-        </div>
+        </template>
       </div>
     </section>
     <!-- Support Section End -->
@@ -257,23 +305,32 @@
     <!-- Contact Section Start -->
     <section class="contact" id="contact">
       <h2>Contact</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quae.</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam,
+        quae.
+      </p>
 
       <div class="row">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31724.26031315726!2d106.83516649027099!3d-6.324958044526802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eda4f343620d%3A0xa92a7cf6c52e3fa7!2sKec.%20Ps.%20Rebo%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1715815391405!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.76994562623!2d106.84911631701844!3d-6.304074298961394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed83f46aa99f%3A0xcbba6b081df74068!2sGedong%2C%20Kec.%20Ps.%20Rebo%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1716372274086!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
 
         <form action="">
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Name" />
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Email" />
           </div>
           <div class="input-group">
             <i data-feather="phone"></i>
-            <input type="text" placeholder="Phone Number">
+            <input type="text" placeholder="Phone Number" />
           </div>
           <button class="btn" type="submit">Send</button>
         </form>
@@ -299,7 +356,10 @@
         </div>
 
         <div class="credit">
-          <p>Created by <a href="#">Ibra Suraya</a>. | &copy; 2023. All Rights Reserved.</p>
+          <p>
+            Created by <a href="#">Ibra Suraya</a>. | &copy; 2023. All Rights
+            Reserved.
+          </p>
           <p>Version 1.0.0</p>
         </div>
       </div>
@@ -311,10 +371,15 @@
       <div class="modal-container">
         <a href="#" class="close-icon"><i data-feather="x"></i></a>
         <div class="modal-content">
-          <img src="img/support-me.jpg" alt="support-me">
+          <img src="img/support-me.jpg" alt="support-me" />
           <div class="support-content">
             <h3>Support Me</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum tenetur maxime ducimus laborum fugiat! Libero laborum est ratione quaerat inventore, perferendis, ut aperiam suscipit nihil autem, facere dolores minus eius.</p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
+              tenetur maxime ducimus laborum fugiat! Libero laborum est ratione
+              quaerat inventore, perferendis, ut aperiam suscipit nihil autem,
+              facere dolores minus eius.
+            </p>
             <div class="support-stars">
               <i data-feather="star" class="star-fill"></i>
               <i data-feather="star" class="star-fill"></i>
@@ -323,7 +388,9 @@
               <i data-feather="star" class="star-fill"></i>
             </div>
             <div class="support-price">IDR 40K <span>IDR 50K</span></div>
-            <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
+            <a href="#"
+              ><i data-feather="shopping-cart"></i> <span>add to cart</span></a
+            >
           </div>
         </div>
       </div>
