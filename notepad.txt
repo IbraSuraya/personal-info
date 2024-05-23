@@ -6,6 +6,7 @@ Fitur Kembangan
 - Fitur Search
 - Setelah Part 3, pop up cart detail support tidak keluar
 - Jika support cart sidebar isinya terlalu banyak, bagaimana scrollnya?
+  - Shopping-cartnya kasih style overflow: auto
 
 Membuat Fitur PAYMENT GATEWAY (Midtrans) untuk Website KEDAI KOPI | Part 5 | NGOBAR#44
 Link : https://youtu.be/4SK5LRemVqA?si=VpskPsVwtzX9A2e3

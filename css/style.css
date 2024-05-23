@@ -257,6 +257,11 @@ body {
   transition: 0.2s;
 }
 
+.form-container .checkout-button.disabled{
+  background-color: var(--primary-color);
+  cursor: not-allowed;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;

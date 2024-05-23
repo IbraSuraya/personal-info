@@ -34,29 +34,21 @@ document.addEventListener('click', function (e) {
   // for hamburger icon 
   if(!hmIcon.contains(e.target) && !navbarNav.contains(e.target)) {
     navbarNav.classList.remove('active');
+    e.preventDefault();
   }
   
   // for search icon 
   if(!searchButton.contains(e.target) && !searchForm.contains(e.target)) {
     searchForm.classList.remove('active');
+    e.preventDefault();
   }
   
   // for support icon 
   if(!supportButton.contains(e.target) && !supportCart.contains(e.target)) {
     supportCart.classList.remove('active');
+    e.preventDefault();
   }
 })
-
-// Smooth scroling page (Gagal)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-      });
-  });
-});
 
 // Modal Box
 const itemDetailModal = document.querySelector('#item-detail-modal')
