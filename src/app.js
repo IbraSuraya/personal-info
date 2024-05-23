@@ -123,7 +123,7 @@ checkoutButton.addEventListener("click", async function (e) {
 
   // Whatshapp Message
   // const message = formatMessage(objData);
-  // window.open('http://wa.me/6285892547068?text=' + encodeURIComponent(message))
+  // window.open('http://wa.me/YOUR_PHONE_NUMBER?text=' + encodeURIComponent(message))
 
   // Midtrans - Get Transction Token with Ajax/Fetch
   try {
@@ -135,7 +135,7 @@ checkoutButton.addEventListener("click", async function (e) {
     const token = await response.text();
     console.log(token);
     console.log('TEST token')
-    // window.snap.pay(token);
+    window.snap.pay(token);
   } catch (err) {
     console.log(err.message);
   }
